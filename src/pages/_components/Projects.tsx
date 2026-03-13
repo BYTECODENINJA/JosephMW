@@ -33,12 +33,12 @@ const projects: Project[] = [
         icon: "🪟",
     },
     {
-        title: "AI Content Generator",
-        description: "AI-powered content generation tool using Python, FastAPI, and OpenAI GPT.",
-        tags: ["Python", "FastAPI", "React"],
+        title: "Hangman Game",
+        description: "My first project after understanding javascript.It is a fun, interactive web-based Hangman game built with  HTML, CSS, and JavaScript",
+        tags: ["HTML", "CSS", "javascript"],
         gradient: "from-violet-600/30 to-pink-600/20",
-        demo: "#",
-        code: "#",
+        demo: "https://bytecodeninja.github.io/hangman-game/",
+        code: "https://github.com/BYTECODENINJA/hangman-game",
         icon: "🤖",
     },
     {

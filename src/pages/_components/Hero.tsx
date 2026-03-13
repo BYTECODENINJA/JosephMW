@@ -139,8 +139,8 @@ export default function Hero() {
                             transition={{ delay: tech.delay + 0.5, duration: 0.4, type: "spring" }}
                             style={{
                                 position: "absolute",
-                                top: `${[5, 10, 75, 70, 15, 60][i]}%`,
-                                left: `${[5, 80, 82, 0, 45, 88][i]}%`,
+                                top: `${[5, 10, 75, 70, 15, 60, 105, -10][i]}%`,
+                                left: `${[5, 80, 82, 0, 45, 88, 40, 40][i]}%`,
                             }}
                             className={`px-3 py-1.5 rounded-xl border text-xs font-bold ${tech.color} backdrop-blur-sm shadow-lg`}
                         >
