@@ -1,13 +1,13 @@
 import { motion } from "motion/react";
-import { Download, Mail, Github, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Download, Mail, Github, Linkedin, Twitter } from "lucide-react";
 import { Button } from "../../components/ui/button.tsx";
 import { toast } from "sonner";
 
 const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub", color: "hover:text-white" },
+    { icon: Github, href: "https://github.com/BYTECODENINJA", label: "GitHub", color: "hover:text-white" },
     { icon: Twitter, href: "https://twitter.com", label: "Twitter", color: "hover:text-sky-400" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn", color: "hover:text-blue-400" },
-    { icon: Youtube, href: "https://youtube.com", label: "YouTube", color: "hover:text-red-500" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/joseph-mulwa808", label: "LinkedIn", color: "hover:text-blue-400" },
+    { icon: Mail, href: "mailto: josephmulwa8055@gmail.com", label: "Mail", color: "hover:text-red-500" },
 ];
 
 const floatingTech = [
@@ -17,6 +17,8 @@ const floatingTech = [
     { label: "K8s", color: "bg-blue-600/20 text-blue-300 border-blue-600/30", delay: 0.6 },
     { label: "Python", color: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30", delay: 0.8 },
     { label: "TS", color: "bg-blue-400/20 text-blue-300 border-blue-400/30", delay: 1.0 },
+    { label: "Express", color: "bg-green-500/20 text-green-400 border-green-500/30", delay: 1.2 },
+    { label: "MongoDB", color: "bg-green-500/20 text-green-400 border-green-500/30", delay: 1.4 },
 ];
 
 export default function Hero() {
@@ -93,7 +95,7 @@ export default function Hero() {
                     >
                         Passionate about building scalable web applications and robust DevOps pipelines.
                         Specializing in the MERN stack, Python, and cloud-native technologies like Docker
-                        and Kubernetes. I turn ideas into production-ready solutions.
+                        and Kubernetes. Aiming on delivering end-to-end solutions that are both performant and maintainable.
                     </motion.p>
 
                     {/* CTA Buttons */}

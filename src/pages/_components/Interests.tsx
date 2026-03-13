@@ -2,7 +2,6 @@ import { motion } from "motion/react";
 import {
     Cloud,
     GitBranch,
-    Github,
     Brain,
     Shield,
     Layers,
@@ -10,8 +9,7 @@ import {
     Box,
     Database,
     Code2,
-    Terminal,
-    Wrench,
+    Blocks, Router,
 } from "lucide-react";
 
 type Interest = {
@@ -23,6 +21,34 @@ type Interest = {
 };
 
 const interests: Interest[] = [
+    {
+        icon: Brain,
+        title: "AI & Machine Learning",
+        description: "Exploring machine learning algorithms, neural networks, and AI-powered applications. Fascinated by how AI is transforming software development.",
+        colorClass: "text-purple-400",
+        bgClass: "bg-purple-500/10 border-purple-500/20",
+    },
+    {
+        icon: Shield,
+        title: "Cybersecurity",
+        description: "Securing applications, APIs, and infrastructure against modern threats.Understanding security best practices, ethical hacking, and building secure applications from the ground up.",
+        colorClass: "text-red-400",
+        bgClass: "bg-red-500/10 border-red-500/20",
+    },
+    {
+        icon: Blocks,
+        title: "Blockchain and web 3,0",
+        description: "Exploring decentralized applications, smart contracts, and the future of web technologies.Understanding how NFTs and crypto works.",
+        colorClass: "text-emerald-400",
+        bgClass: "bg-emerald-500/10 border-emerald-500/20",
+    },
+    {
+        icon: Layers,
+        title: "System Design",
+        description: "Architecting distributed systems, databases, and APIs at scale.Designing scalable, reliable, and efficient software architectures for complex applications.",
+        colorClass: "text-teal-400",
+        bgClass: "bg-teal-500/10 border-teal-500/20",
+    },
     {
         icon: Cloud,
         title: "Cloud Architecture",
@@ -38,18 +64,11 @@ const interests: Interest[] = [
         bgClass: "bg-orange-500/10 border-orange-500/20",
     },
     {
-        icon: Brain,
-        title: "AI & Machine Learning",
-        description: "Exploring LLMs, neural networks, and intelligent automation systems",
-        colorClass: "text-purple-400",
-        bgClass: "bg-purple-500/10 border-purple-500/20",
-    },
-    {
-        icon: Shield,
-        title: "Cybersecurity",
-        description: "Securing applications, APIs, and infrastructure against modern threats",
-        colorClass: "text-red-400",
-        bgClass: "bg-red-500/10 border-red-500/20",
+        icon: Zap,
+        title: "Web Performance",
+        description: "Optimizing load times, Core Web Vitals, and rendering strategies",
+        colorClass: "text-yellow-400",
+        bgClass: "bg-yellow-500/10 border-yellow-500/20",
     },
     {
         icon: Box,
@@ -57,27 +76,6 @@ const interests: Interest[] = [
         description: "Kubernetes, Docker Swarm, and microservices architecture at scale",
         colorClass: "text-blue-400",
         bgClass: "bg-blue-500/10 border-blue-500/20",
-    },
-    {
-        icon: Github,
-        title: "Open Source",
-        description: "Contributing to and building open-source tools and libraries",
-        colorClass: "text-emerald-400",
-        bgClass: "bg-emerald-500/10 border-emerald-500/20",
-    },
-    {
-        icon: Layers,
-        title: "System Design",
-        description: "Architecting distributed systems, databases, and APIs at scale",
-        colorClass: "text-teal-400",
-        bgClass: "bg-teal-500/10 border-teal-500/20",
-    },
-    {
-        icon: Zap,
-        title: "Web Performance",
-        description: "Optimizing load times, Core Web Vitals, and rendering strategies",
-        colorClass: "text-yellow-400",
-        bgClass: "bg-yellow-500/10 border-yellow-500/20",
     },
     {
         icon: Database,
@@ -92,20 +90,6 @@ const interests: Interest[] = [
         description: "RESTful, GraphQL, and WebSocket APIs with clean design patterns",
         colorClass: "text-pink-400",
         bgClass: "bg-pink-500/10 border-pink-500/20",
-    },
-    {
-        icon: Terminal,
-        title: "Linux & Networking",
-        description: "Deep knowledge of Linux internals, shell scripting, and networking",
-        colorClass: "text-slate-300",
-        bgClass: "bg-slate-500/10 border-slate-500/20",
-    },
-    {
-        icon: Wrench,
-        title: "Developer Tooling",
-        description: "Building CLI tools and productivity tools for developer workflows",
-        colorClass: "text-amber-400",
-        bgClass: "bg-amber-500/10 border-amber-500/20",
     },
 ];
 

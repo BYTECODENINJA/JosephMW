@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Send, Mail, Phone, MapPin, Github, Linkedin, Twitter } from "lucide-react";
+import {Send, Mail, Phone, MapPin, Github, Linkedin, Twitter, MessageCircleIcon} from "lucide-react";
 import { Button } from "../../components/ui/button.tsx";
 import { Input } from "../../components/ui/input.tsx";
 import { Textarea } from "../../components/ui/textarea.tsx";
@@ -14,9 +14,9 @@ const socialLinks = [
 ];
 
 const contactInfo = [
-    { icon: Mail, value: "josephmulwa@email.com", label: "Email" },
-    { icon: Phone, value: "+254 700 000 000", label: "Phone" },
-    { icon: MapPin, value: "Nairobi, Kenya", label: "Location" },
+    { icon: Mail, value: "josephmulwa8055@gmail.com", label: "Email" },
+    { icon: Phone, value: "+254 708 644 969", label: "Phone" },
+    { icon: MessageCircleIcon, value: "+254 708 644 969", label: "Whatsapp" },
 ];
 
 type FormState = {

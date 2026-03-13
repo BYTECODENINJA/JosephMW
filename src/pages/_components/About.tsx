@@ -3,7 +3,7 @@ import { ArrowRight, Code2, Server, GitBranch } from "lucide-react";
 import { Button } from "../../components/ui/button.tsx";
 
 const stats = [
-    { value: "3+", label: "Years Experience", icon: Code2 },
+    { value: "1", label: "Year Experience", icon: Code2 },
     { value: "20+", label: "Projects Completed", icon: Server },
     { value: "10+", label: "Technologies", icon: GitBranch },
 ];
@@ -76,7 +76,7 @@ export default function About() {
                         strong foundation in the MERN stack and cloud-native technologies. I love
                         architecting scalable systems, automating deployments, and crafting
                         beautiful user experiences. When I&apos;m not coding, I&apos;m exploring new
-                        technologies and contributing to open source.
+                        technologies and trying to comeup with ideas that technologically solve day to day problems.
                     </p>
 
                     {/* Stats */}

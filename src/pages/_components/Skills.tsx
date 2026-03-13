@@ -18,6 +18,7 @@ const skills: Skill[] = [
     { name: "Docker", level: 87, color: "bg-sky-500", bg: "bg-sky-500/15 text-sky-400", abbr: "Do" },
     { name: "Kubernetes", level: 76, color: "bg-indigo-500", bg: "bg-indigo-500/15 text-indigo-400", abbr: "K8" },
     { name: "JavaScript", level: 95, color: "bg-amber-400", bg: "bg-amber-400/15 text-amber-300", abbr: "JS" },
+    { name: "MySQL", level: 67, color: "bg-orange-400", bg: "bg-orange-500/15 text-orange-400", abbr: "MySQL" },
 ];
 
 function SkillCard({ skill, index }: { skill: Skill; index: number }) {
@@ -77,7 +78,7 @@ export default function Skills() {
                     </p>
                     <h2 className="text-3xl font-bold text-white">My Skills</h2>
                     <p className="text-muted-foreground text-sm mt-2">
-                        Technologies and tools I use to build amazing web experiences
+                        These bars do not present my actual knowledge but indeed how confident and how compatible I can implement these skills in an actual project.
                     </p>
                 </motion.div>
 
