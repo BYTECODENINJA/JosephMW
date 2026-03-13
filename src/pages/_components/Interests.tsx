@@ -9,7 +9,7 @@ import {
     Box,
     Database,
     Code2,
-    Blocks, Router,
+    Blocks,
 } from "lucide-react";
 
 type Interest = {

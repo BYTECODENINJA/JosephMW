@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import {Send, Mail, Phone, MapPin, Github, Linkedin, Twitter, MessageCircleIcon} from "lucide-react";
+import {Send, Mail, Phone, Github, Linkedin, Twitter, MessageCircleIcon} from "lucide-react";
 import { Button } from "../../components/ui/button.tsx";
 import { Input } from "../../components/ui/input.tsx";
 import { Textarea } from "../../components/ui/textarea.tsx";
