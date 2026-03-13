@@ -43,13 +43,13 @@ export default function Index() {
 
             {/* Fixed floating navbar */}
             <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4 md:px-8 pointer-events-none">
-                <div className="w-full max-w-[1600px] pointer-events-auto">
+                <div className="w-full max-w-[1920px] pointer-events-auto">
                     <Navbar onHireMe={() => setHireModalOpen(true)} />
                 </div>
             </header>
 
             {/* Scrollable main content */}
-            <main className="relative z-10 max-w-[1600px] mx-auto px-4 md:px-8 pt-24 pb-12">
+            <main className="relative z-10 max-w-[1920px] mx-auto px-4 md:px-8 lg:px-16 pt-24 pb-12">
                 <div className="flex flex-col gap-5">
 
                     {/* Hero – individual card */}

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background circle with orange brand colour -->
+  <circle cx="32" cy="32" r="32" fill="oklch(0.17 0.025 255)"/>
+  <circle cx="32" cy="32" r="30" fill="oklch(0.72 0.19 42)" opacity="0.15"/>
+  <!-- Letter J -->
+  <text
+    x="32"
+    y="46"
+    text-anchor="middle"
+    font-family="'Space Grotesk', 'Segoe UI', sans-serif"
+    font-size="36"
+    font-weight="700"
+    fill="oklch(0.72 0.19 42)"
+  >J</text>
+</svg>
