@@ -61,7 +61,10 @@ export default function Navbar({ onHireMe }: NavbarProps) {
 
                 {/* Right side */}
                 <div className="flex items-center gap-3">
-                    <button className="hidden md:block text-muted-foreground hover:text-white transition-colors">
+                    <button
+                        className="hidden md:block text-muted-foreground hover:text-white transition-colors"
+                        aria-label="Language / Region"
+                    >
                         <Globe size={15} />
                     </button>
                     <Button

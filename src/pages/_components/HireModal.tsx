@@ -20,7 +20,7 @@ import {
 import { Button } from "../../components/ui/button.tsx";
 import { Label } from "../../components/ui/label.tsx";
 import { toast } from "sonner";
-
+import { submitToFormspree, FORMSPREE } from "../../lib/formspree.ts";
 
 type ProjectForm = {
     name: string;
@@ -70,12 +70,11 @@ const initialEmployment: EmploymentForm = {
 
 type Props = { open: boolean; onClose: () => void };
 
-// Reusable field wrapper
 function Field({
-                   label,
-                   required,
-                   children,
-               }: {
+    label,
+    required,
+    children,
+}: {
     label: string;
     required?: boolean;
     children: React.ReactNode;
@@ -120,11 +119,29 @@ export default function HireModal({ open, onClose }: Props) {
             return;
         }
         setSending(true);
-        await new Promise((resolve) => setTimeout(resolve, 800));
-        toast.success("Project inquiry sent! I'll respond within 24 hours.");
-        setProject(initialProject);
-        setSending(false);
-        onClose();
+        try {
+            await submitToFormspree(FORMSPREE.HIRE_URL, {
+                inquiry_type:  "Project-Based",
+                name:          project.name,
+                email:         project.email,
+                company:       project.company || "—",
+                project_type:  project.projectType || "—",
+                budget:        project.budget || "—",
+                timeline:      project.timeline || "—",
+                technologies:  project.technologies || "—",
+                description:   project.description,
+            });
+            toast.success("Project inquiry sent! I'll respond within 24 hours. 🚀");
+            setProject(initialProject);
+            onClose();
+        } catch (err) {
+            console.error(err);
+            toast.error(
+                "Couldn't send. Please email me directly at josephmulwa8055@gmail.com"
+            );
+        } finally {
+            setSending(false);
+        }
     };
 
     const handleEmploymentSubmit = async (e: React.FormEvent) => {
@@ -134,11 +151,30 @@ export default function HireModal({ open, onClose }: Props) {
             return;
         }
         setSending(true);
-        await new Promise((resolve) => setTimeout(resolve, 800));
-        toast.success("Employment inquiry sent! I'll review and get back to you.");
-        setEmployment(initialEmployment);
-        setSending(false);
-        onClose();
+        try {
+            await submitToFormspree(FORMSPREE.HIRE_URL, {
+                inquiry_type:    "Employment",
+                name:            employment.name,
+                email:           employment.email,
+                company:         employment.companyName || "—",
+                role:            employment.role || "—",
+                position_title:  employment.positionTitle || "—",
+                employment_type: employment.employmentType || "—",
+                work_location:   employment.workLocation || "—",
+                required_skills: employment.requiredSkills || "—",
+                job_description: employment.jobDescription,
+            });
+            toast.success("Employment inquiry sent! I'll review and get back to you. 🎉");
+            setEmployment(initialEmployment);
+            onClose();
+        } catch (err) {
+            console.error(err);
+            toast.error(
+                "Couldn't send. Please email me directly at josephmulwa8055@gmail.com"
+            );
+        } finally {
+            setSending(false);
+        }
     };
 
     const SubmitButton = ({ label }: { label: string }) => (
@@ -197,7 +233,6 @@ export default function HireModal({ open, onClose }: Props) {
                         className="px-7 pb-7 pt-5 max-h-[65vh] overflow-y-auto space-y-4"
                     >
                         <form onSubmit={handleProjectSubmit} className="space-y-4">
-                            {/* Name + Email */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <Field label="Name" required>
                                     <Input
@@ -220,7 +255,6 @@ export default function HireModal({ open, onClose }: Props) {
                                 </Field>
                             </div>
 
-                            {/* Company */}
                             <Field label="Company / Organisation">
                                 <Input
                                     name="company"
@@ -231,7 +265,6 @@ export default function HireModal({ open, onClose }: Props) {
                                 />
                             </Field>
 
-                            {/* Project Type + Budget */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <Field label="Project Type">
                                     <Select
@@ -262,17 +295,16 @@ export default function HireModal({ open, onClose }: Props) {
                                             <SelectValue placeholder="Select budget" />
                                         </SelectTrigger>
                                         <SelectContent className={selectContentCls}>
-                                            <SelectItem className={selectItemCls} value="under-1k">Under $1,000</SelectItem>
-                                            <SelectItem className={selectItemCls} value="1k-5k">$1,000 – $5,000</SelectItem>
-                                            <SelectItem className={selectItemCls} value="5k-10k">$5,000 – $10,000</SelectItem>
-                                            <SelectItem className={selectItemCls} value="10k-25k">$10,000 – $25,000</SelectItem>
-                                            <SelectItem className={selectItemCls} value="25k-plus">$25,000+</SelectItem>
+                                            <SelectItem className={selectItemCls} value="under-1k">Under Ksh 10,000</SelectItem>
+                                            <SelectItem className={selectItemCls} value="1k-5k">Ksh10,000 – Ksh50,000</SelectItem>
+                                            <SelectItem className={selectItemCls} value="5k-10k">Ksh50,000 – Ksh100,000</SelectItem>
+                                            <SelectItem className={selectItemCls} value="10k-25k">Ksh100,000 – Ksh250,000</SelectItem>
+                                            <SelectItem className={selectItemCls} value="25k-plus">Ksh250,000+</SelectItem>
                                         </SelectContent>
                                     </Select>
                                 </Field>
                             </div>
 
-                            {/* Timeline */}
                             <Field label="Timeline">
                                 <Select
                                     value={project.timeline}
@@ -291,7 +323,6 @@ export default function HireModal({ open, onClose }: Props) {
                                 </Select>
                             </Field>
 
-                            {/* Description */}
                             <Field label="Description" required>
                                 <Textarea
                                     name="description"
@@ -303,7 +334,6 @@ export default function HireModal({ open, onClose }: Props) {
                                 />
                             </Field>
 
-                            {/* Preferred Technologies */}
                             <Field label="Preferred Technologies">
                                 <Input
                                     name="technologies"
@@ -324,7 +354,6 @@ export default function HireModal({ open, onClose }: Props) {
                         className="px-7 pb-7 pt-5 max-h-[65vh] overflow-y-auto space-y-4"
                     >
                         <form onSubmit={handleEmploymentSubmit} className="space-y-4">
-                            {/* Name + Email */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <Field label="Name" required>
                                     <Input
@@ -347,7 +376,6 @@ export default function HireModal({ open, onClose }: Props) {
                                 </Field>
                             </div>
 
-                            {/* Company + Role */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <Field label="Company Name">
                                     <Input
@@ -369,7 +397,6 @@ export default function HireModal({ open, onClose }: Props) {
                                 </Field>
                             </div>
 
-                            {/* Position Title */}
                             <Field label="Position Title">
                                 <Input
                                     name="positionTitle"
@@ -380,7 +407,6 @@ export default function HireModal({ open, onClose }: Props) {
                                 />
                             </Field>
 
-                            {/* Employment Type + Work Location */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <Field label="Employment Type">
                                     <Select
@@ -419,7 +445,6 @@ export default function HireModal({ open, onClose }: Props) {
                                 </Field>
                             </div>
 
-                            {/* Job Description */}
                             <Field label="Job Description" required>
                                 <Textarea
                                     name="jobDescription"
@@ -431,7 +456,6 @@ export default function HireModal({ open, onClose }: Props) {
                                 />
                             </Field>
 
-                            {/* Required Skills */}
                             <Field label="Required Skills">
                                 <Input
                                     name="requiredSkills"

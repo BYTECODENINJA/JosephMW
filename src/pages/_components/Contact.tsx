@@ -1,22 +1,22 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import {Send, Mail, Phone, Github, Linkedin, Twitter, MessageCircleIcon} from "lucide-react";
+import { Send, Mail, Phone, Github, Linkedin, Twitter, MessageCircleIcon } from "lucide-react";
 import { Button } from "../../components/ui/button.tsx";
 import { Input } from "../../components/ui/input.tsx";
 import { Textarea } from "../../components/ui/textarea.tsx";
 import { toast } from "sonner";
-
+import { submitToFormspree, FORMSPREE } from "../../lib/formspree.ts";
 
 const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+    { icon: Github,   href: "https://github.com/BYTECODENINJA",              label: "GitHub"   },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/joseph-mulwa808",    label: "LinkedIn" },
+    { icon: Twitter,  href: "https://twitter.com",                            label: "Twitter"  },
 ];
 
 const contactInfo = [
-    { icon: Mail, value: "josephmulwa8055@gmail.com", label: "Email" },
-    { icon: Phone, value: "+254 708 644 969", label: "Phone" },
-    { icon: MessageCircleIcon, value: "+254 708 644 969", label: "Whatsapp" },
+    { icon: Mail,               value: "josephmulwa8055@gmail.com", label: "Email"    },
+    { icon: Phone,              value: "+254 708 644 969",          label: "Phone"    },
+    { icon: MessageCircleIcon,  value: "+254 708 644 969",          label: "WhatsApp" },
 ];
 
 type FormState = {
@@ -46,19 +46,35 @@ export default function Contact() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!form.firstName || !form.email || !form.message) {
-            toast.error("Please fill in required fields.");
+            toast.error("Please fill in Name, Email, and Message.");
             return;
         }
+
         setSending(true);
-        // Simulate a brief delay for UX feedback
-        await new Promise((resolve) => setTimeout(resolve, 800));
-        toast.success("Message sent! I'll get back to you soon.");
-        setForm(initialForm);
-        setSending(false);
+        try {
+            await submitToFormspree(FORMSPREE.CONTACT_URL, {
+                name:    `${form.firstName} ${form.lastName}`.trim(),
+                email:   form.email,
+                phone:   form.phone || "—",
+                message: form.message,
+            });
+            toast.success("Message sent! I'll get back to you soon. 🚀");
+            setForm(initialForm);
+        } catch (err) {
+            console.error(err);
+            toast.error(
+                "Couldn't send the message. Please email me directly at josephmulwa8055@gmail.com"
+            );
+        } finally {
+            setSending(false);
+        }
     };
 
     return (
-        <section id="contact" className="relative overflow-hidden rounded-3xl bg-card border border-white/5 shadow-2xl p-8 md:p-10 scroll-mt-24 lg:min-h-[calc(100vh-7rem)] lg:flex lg:flex-col lg:justify-center">
+        <section
+            id="contact"
+            className="relative overflow-hidden rounded-3xl bg-card border border-white/5 shadow-2xl p-8 md:p-10 scroll-mt-24 lg:min-h-[calc(100vh-7rem)] lg:flex lg:flex-col lg:justify-center"
+        >
             {/* Background decoration */}
             <div className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[700px] h-64 bg-primary/8 rounded-full blur-3xl pointer-events-none" />
 
@@ -81,7 +97,7 @@ export default function Contact() {
 
                 {/* Content */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-                    {/* Left - Character + contact info */}
+                    {/* Left – character + contact info */}
                     <motion.div
                         initial={{ opacity: 0, x: -40 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -145,7 +161,7 @@ export default function Contact() {
                         </div>
                     </motion.div>
 
-                    {/* Right - Form */}
+                    {/* Right – form */}
                     <motion.form
                         onSubmit={handleSubmit}
                         initial={{ opacity: 0, x: 40 }}

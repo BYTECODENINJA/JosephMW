@@ -76,7 +76,7 @@ export default function About() {
                         strong foundation in the MERN stack and cloud-native technologies. I love
                         architecting scalable systems, automating deployments, and crafting
                         beautiful user experiences. When I&apos;m not coding, I&apos;m exploring new
-                        technologies and trying to comeup with ideas that technologically solve day to day problems.
+                        technologies and trying to come up with ideas that technologically solve day to day problems.
                     </p>
 
                     {/* Stats */}
