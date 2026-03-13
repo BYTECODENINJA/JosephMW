@@ -8,7 +8,7 @@ type Project = {
     description: string;
     tags: string[];
     gradient: string;
-    demo: string;
+    demo?: string;
     code: string;
     icon: string;
 };
@@ -41,32 +41,34 @@ const projects: Project[] = [
         code: "https://github.com/BYTECODENINJA/hangman-game",
         icon: "🤖",
     },
+]
+
+// Fix 1: Changed `projects[]` to `Project[]` (was referencing an undefined type)
+const incompleteProjects: Project[] = [
     {
-        title: "Real-Time Chat App",
-        description: "WebSocket-powered real-time chat with rooms, direct messaging, and file sharing.",
-        tags: ["Node.js", "Socket.io", "React"],
+        title: "ExpenseTracker",
+        description: "A modern finance tracker with a clean minimalist UI and detailed financial statistics.",
+        tags: ["Node.js", "MongoDb", "React", "javascript"],
         gradient: "from-green-600/30 to-emerald-600/20",
-        demo: "#",
-        code: "#",
-        icon: "💬",
+        code: "https://github.com/BYTECODENINJA/ExpenseTracker",
+        icon: "💵",
     },
     {
-        title: "Task Management System",
-        description: "Collaborative task manager with Kanban board, deadlines, and team assignments.",
-        tags: ["MERN", "TypeScript"],
+        title: "Productivity application",
+        description: "An app that helps in managing events, keeping journals, taking notes and other productivity tools.",
+        tags: ["Javascript","TailwindCss", "TypeScript"],
         gradient: "from-orange-600/30 to-red-600/20",
-        demo: "#",
-        code: "#",
+        code: "https://github.com/BYTECODENINJA/neo-focus",
         icon: "📋",
     },
     {
-        title: "Infrastructure Monitor",
-        description: "Real-time server and container health monitoring with alerting and analytics.",
-        tags: ["Docker", "Node.js", "MongoDB"],
+        // Fix 2: Replaced copy-pasted description with a correct one for a Car Rental website
+        title: "Car Rental website",
+        description: "A car rental platform with vehicle listings, booking management, and a modern UI.",
+        tags: ["Typescript", "Node.js", "css", "Supabase"],
         gradient: "from-teal-600/30 to-cyan-600/20",
-        demo: "#",
-        code: "#",
-        icon: "📊",
+        code: "https://github.com/BYTECODENINJA/autogram",
+        icon: "🚗",
     },
 ];
 
@@ -158,6 +160,64 @@ export default function Projects() {
                                         <ExternalLink size={12} />
                                         Demo
                                     </Button>
+                                    <Button
+                                        size="sm"
+                                        variant="secondary"
+                                        className="flex-1 rounded-xl text-xs font-bold bg-white/10 text-white hover:bg-white/20 border border-white/10 gap-1.5"
+                                        onClick={() => window.open(project.code, "_blank")}
+                                    >
+                                        <Github size={12} />
+                                        Code
+                                    </Button>
+                                </div>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+                <h2 className="text-3xl font-bold text-white text-center">Works In Progress</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+                    {incompleteProjects.map((project, i) => (
+                        <motion.div
+                            key={project.title}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1, duration: 0.4 }}
+                            whileHover={{ y: -5 }}
+                            className="group bg-white/5 rounded-2xl border border-white/5 overflow-hidden hover:border-primary/20 transition-all duration-300"
+                        >
+                            {/* Project thumbnail */}
+                            <div className={`relative h-40 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
+                                <span className="text-6xl">{project.icon}</span>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                                {/* Hover overlay */}
+                                <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            </div>
+
+                            {/* Card content */}
+                            <div className="p-5 space-y-3">
+                                <h3 className="font-bold text-white text-base group-hover:text-primary transition-colors">
+                                    {project.title}
+                                </h3>
+                                <p className="text-muted-foreground text-xs leading-relaxed">
+                                    {project.description}
+                                </p>
+
+                                {/* Tags */}
+                                <div className="flex flex-wrap gap-1.5">
+                                    {project.tags.map((tag) => (
+                                        <Badge
+                                            key={tag}
+                                            variant="outline"
+                                            className={`text-xs px-2 py-0.5 rounded-md border ${tagColors[tag] ?? "bg-white/10 text-white/60 border-white/20"}`}
+                                        >
+                                            {tag}
+                                        </Badge>
+                                    ))}
+                                </div>
+
+                                {/* Buttons */}
+                                <div className="flex gap-2 pt-1">
                                     <Button
                                         size="sm"
                                         variant="secondary"
