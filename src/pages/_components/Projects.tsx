@@ -53,8 +53,8 @@ const incompleteProjects: Project[] = [
         description: "A modern AI powered book reading platform with a voice chat centered conversations",
         tags: ["Node.js", "MongoDb", "React", "Typescript","Gen AI"],
         gradient: "from-green-600/30 to-emerald-600/20",
-        code: "https://github.com/BYTECODENINJA/ExpenseTracker",
-        image: "/expense.png",
+        code: "https://github.com/BYTECODENINJA/learnerd",
+        image: "/Learnerd.png",
         icon: "💵",
     },
     {
