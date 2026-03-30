@@ -10,6 +10,7 @@ type Project = {
     gradient: string;
     demo?: string;
     code: string;
+    image?: string;
     icon: string;
 };
 
@@ -21,6 +22,7 @@ const projects: Project[] = [
         gradient: "from-blue-600/30 to-purple-600/20",
         demo: "https://gaminglandingpage.vercel.app/",
         code: "https://github.com/BYTECODENINJA/gamingwebsite",
+        image: "/Gamingwebsite.png",
         icon: "🎮",
     },
     {
@@ -30,26 +32,29 @@ const projects: Project[] = [
         gradient: "from-sky-600/30 to-blue-600/20",
         demo: "https://windows-portfolio-ruby.vercel.app/",
         code: "https://github.com/BYTECODENINJA/WindowsPortfolio",
+        image: "/Windowsportfolio.png",
         icon: "🪟",
     },
     {
-        title: "Hangman Game",
-        description: "My first project after learning JavaScript. A fun, interactive web-based Hangman game built with HTML, CSS, and JavaScript.",
-        tags: ["HTML", "CSS", "javascript"],
+        title: "Rentosearch",
+        description: "A rentals searching website hosted for kenyan property owners and property seekers to make property finding much easier",
+        tags: ["GSAP", "Convex", "Typescript", "React"],
         gradient: "from-violet-600/30 to-pink-600/20",
-        demo: "https://bytecodeninja.github.io/hangman-game/",
-        code: "https://github.com/BYTECODENINJA/hangman-game",
+        demo: "https://www.rentosearch.co.ke",
+        code: "https://github.com/BYTECODENINJA/RentoSearch",
+        image: "/Rentosearch.png",
         icon: "🤖",
     },
 ];
 
 const incompleteProjects: Project[] = [
     {
-        title: "ExpenseTracker",
-        description: "A modern finance tracker with a clean minimalist UI and detailed financial statistics.",
-        tags: ["Node.js", "MongoDb", "React", "javascript"],
+        title: "Learnerd",
+        description: "A modern AI powered book reading platform with a voice chat centered conversations",
+        tags: ["Node.js", "MongoDb", "React", "Typescript","Gen AI"],
         gradient: "from-green-600/30 to-emerald-600/20",
         code: "https://github.com/BYTECODENINJA/ExpenseTracker",
+        image: "/expense.png",
         icon: "💵",
     },
     {
@@ -58,6 +63,7 @@ const incompleteProjects: Project[] = [
         tags: ["Javascript", "TailwindCss", "TypeScript"],
         gradient: "from-orange-600/30 to-red-600/20",
         code: "https://github.com/BYTECODENINJA/neo-focus",
+        image: "/productivity.png",
         icon: "📋",
     },
     {
@@ -66,6 +72,7 @@ const incompleteProjects: Project[] = [
         tags: ["Typescript", "Node.js", "css", "Supabase"],
         gradient: "from-teal-600/30 to-cyan-600/20",
         code: "https://github.com/BYTECODENINJA/autogram",
+        image: "/car.png",
         icon: "🚗",
     },
 ];
@@ -93,6 +100,7 @@ const tagColors: Record<string, string> = {
     "FastAPI":     "bg-teal-500/20 text-teal-300 border-teal-500/30",
     "Socket.io":   "bg-gray-400/20 text-gray-300 border-gray-400/30",
     "MERN":        "bg-orange-500/20 text-orange-300 border-orange-500/30",
+    "Gen AI": "bg-amber-800/30 text-white border-amber-800/30",
 };
 
 // Reusable project card
@@ -109,7 +117,15 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
         >
             {/* Thumbnail */}
             <div className={`relative h-40 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
-                <span className="text-6xl">{project.icon}</span>
+                {project.image ? (
+                    <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                ) : (
+                    <span className="text-6xl">{project.icon}</span>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
