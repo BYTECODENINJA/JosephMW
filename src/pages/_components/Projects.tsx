@@ -26,6 +26,16 @@ const projects: Project[] = [
         icon: "🎮",
     },
     {
+       title: "Expense Tracker",
+        description: "MoneyMate is a full-stack personal finance management application that lets you track income and expenses, visualise spending trends, scan receipts with AI, and receive scheduled financial reports — all in one place. Built for  Kenya with a clean modern UI.",
+        tags: ["Gen AI","MongoDB","React", "Typescript"],
+        gradient: "from-green-600/30 to-emerald-600/20",
+        demo: "https://moneymate-two.vercel.app",
+        code: "https://github.com/BYTECODENINJA/moneymate",
+        image: "financetracker.png",
+        icon: "💵",
+    },
+    {
         title: "Windows Portfolio",
         description: "A Windows UI-style portfolio website for a fullstack developer. Features a dynamic resume section, blog section, contact form, and more — all in a Windows-inspired design.",
         tags: ["Tailwind CSS", "Next.js", "React", "javascript"],
