@@ -4,6 +4,7 @@ import Navbar from "./_components/Navbar.tsx";
 import Hero from "./_components/Hero.tsx";
 import About from "./_components/About.tsx";
 import Skills from "./_components/Skills.tsx";
+import Experience from "./_components/Experience.tsx";
 import Interests from "./_components/Interests.tsx";
 import Projects from "./_components/Projects.tsx";
 import Contact from "./_components/Contact.tsx";
@@ -66,6 +67,11 @@ export default function Index() {
                             <Skills />
                         </SectionReveal>
                     </div>
+
+                    {/* Experience – individual card */}
+                    <SectionReveal>
+                        <Experience />
+                    </SectionReveal>
 
                     {/* Interests – individual card */}
                     <SectionReveal>

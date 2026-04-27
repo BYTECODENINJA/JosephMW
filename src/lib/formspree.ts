@@ -1,6 +1,6 @@
 export const FORMSPREE = {
-    CONTACT_URL: " https://formspree.io/f/mreyknvb",
-    HIRE_URL:    "https://formspree.io/f/mdawzqvz",     // ← replace
+    CONTACT_URL: "https://formspree.io/f/mreyknvb",
+    HIRE_URL:    "https://formspree.io/f/mdawzqvz",
 };
 
 export async function submitToFormspree(

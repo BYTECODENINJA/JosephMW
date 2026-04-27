@@ -5,9 +5,9 @@ import { toast } from "sonner";
 
 const socialLinks = [
     { icon: Github, href: "https://github.com/BYTECODENINJA", label: "GitHub", color: "hover:text-white" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter", color: "hover:text-sky-400" },
+    { icon: Twitter, href: "https://x.com/bytecodeninja", label: "Twitter", color: "hover:text-sky-400" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/joseph-mulwa808", label: "LinkedIn", color: "hover:text-blue-400" },
-    { icon: Mail, href: "mailto: josephmulwa8055@gmail.com", label: "Mail", color: "hover:text-red-500" },
+    { icon: Mail, href: "mailto:josephmulwa8055@gmail.com", label: "Mail", color: "hover:text-red-500" },
 ];
 
 const floatingTech = [
@@ -23,7 +23,12 @@ const floatingTech = [
 
 export default function Hero() {
     const handleDownloadCV = () => {
-        toast.info("CV download coming soon! Reach out via email for my latest CV.");
+        // Create a link to download the CV
+        const link = document.createElement('a');
+        link.href = '/Joseph_Mulwa_CV.pdf';
+        link.download = 'Joseph_Mulwa_CV.pdf';
+        link.click();
+        toast.success("CV download started! 📄");
     };
 
     const scrollToContact = () => {
