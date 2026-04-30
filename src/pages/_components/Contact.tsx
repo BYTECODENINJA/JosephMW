@@ -11,6 +11,7 @@ const socialLinks = [
     { icon: Github,   href: "https://github.com/BYTECODENINJA",              label: "GitHub"   },
     { icon: Linkedin, href: "https://www.linkedin.com/in/joseph-mulwa808",    label: "LinkedIn" },
     { icon: Twitter,  href: "https://twitter.com",                            label: "Twitter"  },
+    {icon: MessageCircleIcon, href: "https://wa.me/254708644969", label: "WhatsApp"}
 ];
 
 const contactInfo = [

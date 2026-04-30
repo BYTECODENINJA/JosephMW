@@ -57,36 +57,6 @@ const projects: Project[] = [
     },
 ];
 
-const incompleteProjects: Project[] = [
-    {
-        title: "Learnerd",
-        description: "A modern AI powered book reading platform with a voice chat centered conversations",
-        tags: ["Node.js", "MongoDb", "React", "Typescript","Gen AI"],
-        gradient: "from-green-600/30 to-emerald-600/20",
-        code: "https://github.com/BYTECODENINJA/learnerd",
-        image: "/Learnerd.png",
-        icon: "💵",
-    },
-    {
-        title: "Productivity Application",
-        description: "An app that helps in managing events, keeping journals, taking notes and other productivity tools.",
-        tags: ["Javascript", "TailwindCss", "TypeScript"],
-        gradient: "from-orange-600/30 to-red-600/20",
-        code: "https://github.com/BYTECODENINJA/neo-focus",
-        image: "/productivity.png",
-        icon: "📋",
-    },
-    {
-        title: "Car Rental Website",
-        description: "A car rental platform with vehicle listings, booking management, and a modern UI.",
-        tags: ["Typescript", "Node.js", "css", "Supabase"],
-        gradient: "from-teal-600/30 to-cyan-600/20",
-        code: "https://github.com/BYTECODENINJA/autogram",
-        image: "/car.png",
-        icon: "🚗",
-    },
-];
-
 const tagColors: Record<string, string> = {
     "React":       "bg-blue-500/20 text-blue-300 border-blue-500/30",
     "Node.js":     "bg-green-500/20 text-green-300 border-green-500/30",
@@ -221,20 +191,6 @@ export default function Projects() {
                     ))}
                 </div>
 
-                {/* Works in progress */}
-                <motion.h2
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    className="text-3xl font-bold text-white text-center"
-                >
-                    Works In Progress
-                </motion.h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
-                    {incompleteProjects.map((project, i) => (
-                        <ProjectCard key={project.title} project={project} i={i} />
-                    ))}
-                </div>
             </div>
         </section>
     );
