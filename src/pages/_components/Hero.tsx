@@ -25,7 +25,7 @@ export default function Hero() {
     const handleDownloadCV = () => {
         // Create a link to download the CV
         const link = document.createElement('a');
-        link.href = '/Joseph_Mulwa_CV.pdf';
+        link.href = '/JosephMulwa.pdf';
         link.download = 'Joseph_Mulwa_CV.pdf';
         link.click();
         toast.success("CV download started! 📄");

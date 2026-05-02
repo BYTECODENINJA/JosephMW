@@ -26,6 +26,16 @@ const projects: Project[] = [
         icon: "🎮",
     },
     {
+        title: "AI powered Resume Creator",
+        description: "ResumeFlow is a modern, high-performance resume builder designed to help you create professional, ATS-friendly resumes with ease. Built with React, TypeScript, and Vite, it offers a seamless and interactive user experience.",
+        tags: ["Vite", "React", "Typescript","Supabase"],
+        gradient: "from-[#2c3e50] to-[#4ca1af]",
+        demo: "https://resume-flow-rosy.vercel.app/",
+        code: "https://github.com/BYTECODENINJA/ResumeFlow",
+        image: "/resumeflow.png",
+        icon: "️🤵‍♂️"
+    },
+    {
        title: "Expense Tracker",
         description: "MoneyMate is a full-stack personal finance management application that lets you track income and expenses, visualise spending trends, scan receipts with AI, and receive scheduled financial reports — all in one place. Built for  Kenya with a clean modern UI.",
         tags: ["Gen AI","MongoDB","React", "Typescript"],
